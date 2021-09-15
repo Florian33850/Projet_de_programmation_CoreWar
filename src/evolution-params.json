@@ -1,0 +1,92 @@
+{
+	"generations": 500,
+	"version": 0,
+	"battles_by_generation": [
+		{
+			"gen_number": 0,
+			"value": 20
+		},
+		{
+			"gen_number": 75,
+			"value": 25
+		},
+		{
+			"gen_number": 150,
+			"value": 50
+		}
+	],
+	"num_warriors": [
+		{
+			"gen_number": 0,
+			"value": 30
+		},
+		{
+			"gen_number": 75,
+			"value": 25
+		},
+		{
+			"gen_number": 150,
+			"value": 20
+		}
+	],
+	"A_value_modifier_min": 0,
+	"A_value_modifier_max": 7999,
+	"B_value_modifier_min": 0,
+	"B_value_modifier_max": 7999,
+	"survivors": [
+		{
+			"gen_number": 0,
+			"value": 0.2
+		},
+		{
+			"gen_number": 100,
+			"value": 0.5
+		}
+	],
+	"mutations": [
+		{
+			"gen_number": 0,
+			"value": 0.3
+		},
+		{
+			"gen_number": 100,
+			"value": 0.2
+		}
+	],
+	"breedings": [
+		{
+			"gen_number": 0,
+			"value": 0.3
+		},
+		{
+			"gen_number": 100,
+			"value": 0.1
+		}
+	],
+	"fresh": [
+		{
+			"gen_number": 0,
+			"value": 0.2
+		},
+		{
+			"gen_number": 100,
+			"value": 0.1
+		}
+	],
+	"old": [
+		{
+			"gen_number": 0,
+			"value": 0
+		},
+		{
+			"gen_number": 100,
+			"value": 0.1
+		}
+	],
+	"p_mutation_line": 0.1,
+	"p_mutation_field": 0.2,
+	"breed_length_min": 2,
+	"breed_length_max": 5,
+	"generator_path": "../../data/Warriors/Infinite",
+	"generator_depth": 2
+}
