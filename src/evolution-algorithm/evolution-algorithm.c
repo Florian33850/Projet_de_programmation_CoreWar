@@ -232,10 +232,10 @@ warrior_s** evolution_algorithmV1(warrior_s** warriors, evolution_params* params
     return warriors;
 }
 
-void print_results(char* json_file, float score)
+void print_results(char* path, float score)
 {
     FILE* file_results;
-    cJSON* json_parse1 = cJSON_Parse(bufferize_file(json_file));
+    cJSON* json_parse1 = cJSON_Parse(bufferize_file(path));
     int version = cJSON_GetObjectItemCaseSensitive(json_parse1, "version")->valueint;
     char* results_file = (char*)malloc_s(30 * sizeof(char));
     sprintf_s(results_file, 30 * sizeof(char), "../Results/version%d.json", version);

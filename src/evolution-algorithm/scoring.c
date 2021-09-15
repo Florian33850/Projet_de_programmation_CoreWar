@@ -7,6 +7,7 @@
 #if defined(__unix__) || defined(__linux__)
 #define sprintf_s(string, size, format, inc) snprintf(string, size, format, inc )
 #endif
+
 float get_algo_score(warrior_s** warriors, int num_warriors)
 {
 	printf("Getting score (1/2)\n");

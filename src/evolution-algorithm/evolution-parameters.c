@@ -135,9 +135,10 @@ static void load_field(cJSON* json_parse, changing_param* param, char* field)
 	}
 }
 
-void json_parser(evolution_params* params, char* json_file)
+evolution_params* json_parser(char* json_path)
 {
-	char* json = bufferize_file(json_file);
+	evolution_params* params = malloc_evolution_params();
+	char* json = bufferize_file(json_path);
 	if (json == NULL)
 	{
 		printf("Evolution parameters not found !\n");
@@ -183,34 +184,36 @@ void json_parser(evolution_params* params, char* json_file)
 	params->gen = gen;
 	free(json);
 	cJSON_Delete(json_parse);
+
+	return params;
 }
 
-void update_param(changing_param* param, int iteration)
+void update_param(changing_param* param, int generation)
 {
 	if (param->current_lvl + 1 < param->size)
-		if (iteration == param->level[param->current_lvl + 1])
+		if (generation == param->level[param->current_lvl + 1])
 			param->current_lvl++;
 }
 
-void update_all_current_lvl(evolution_params* params, int iteration)
+void update_all_current_lvl(evolution_params* params, int generation)
 {
-	update_param(params->battles_by_generation, iteration);
-	update_param(params->num_warriors, iteration);
+	update_param(params->battles_by_generation, generation);
+	update_param(params->num_warriors, generation);
 	
-	update_param(params->A_value_modifier_min, iteration);
-	update_param(params->A_value_modifier_max, iteration);
-	update_param(params->B_value_modifier_min, iteration);
-	update_param(params->B_value_modifier_max, iteration);
+	update_param(params->A_value_modifier_min, generation);
+	update_param(params->A_value_modifier_max, generation);
+	update_param(params->B_value_modifier_min, generation);
+	update_param(params->B_value_modifier_max, generation);
 
-	update_param(params->survivors, iteration);
-	update_param(params->mutations, iteration);
-	update_param(params->breedings, iteration);
-	update_param(params->fresh, iteration);
-	update_param(params->old, iteration);
+	update_param(params->survivors, generation);
+	update_param(params->mutations, generation);
+	update_param(params->breedings, generation);
+	update_param(params->fresh, generation);
+	update_param(params->old, generation);
 
-	update_param(params->p_mutation_line, iteration);
-	update_param(params->p_mutation_field, iteration);
+	update_param(params->p_mutation_line, generation);
+	update_param(params->p_mutation_field, generation);
 
-	update_param(params->breed_length_min, iteration);
-	update_param(params->breed_length_max, iteration);
+	update_param(params->breed_length_min, generation);
+	update_param(params->breed_length_max, generation);
 }

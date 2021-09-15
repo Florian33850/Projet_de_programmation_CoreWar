@@ -22,8 +22,7 @@ int main(int argc, char* argv[])
 	srand((unsigned int)seed);
 	char* json_file = "../evolution-params.json";
 
-	evolution_params* params = malloc_evolution_params();
-	json_parser(params, json_file);
+	evolution_params* params = json_parser(json_file);
 
 	int num_warriors, a, b, c, d, e;
 	get_warrior_distribution(params, &num_warriors, &a, &b, &c, &d, &e);

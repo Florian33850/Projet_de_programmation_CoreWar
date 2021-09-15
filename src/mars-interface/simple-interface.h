@@ -14,7 +14,7 @@ mars_t* initialize_mars(warrior_s** warriors, int num_warriors);
 /// Compute a battle in mars with all warriors initialized in it, and store the result in the mars structure
 /// </summary>
 /// <param name="mars">A MARS structure</param>
-/// <param name="n">TODO</param>
+/// <param name="n">Number of the battle</param>
 void do_a_match(mars_t* mars, int n);
 
 /// <summary>
@@ -35,10 +35,17 @@ void update_scores(mars_t* mars, float* scores, int num_warriors);
 /// <returns>A list of survivors</returns>
 warrior_s** get_survivors(float* scores, warrior_s** warriors, int num_warriors, int num_survivors);
 
-warrior_s** cpy_warriors(warrior_s** warriors, int num_warriors);
 
+warrior_s** cpy_warriors(warrior_s** warriors, int num_warriors);
 void free_warriors(warrior_s** warriors, int num_warriors);
 
+/// <summary>
+/// Does the matches using the parallelism
+/// </summary>
+/// <param name="rounds">Number of matches to do</param>
+/// <param name="warriors">List of warriors that will be fighting</param>
+/// <param name="num_warriors">Number of warriors</param>
+/// <returns>List of scores of the different warriors</returns>
 float* do_matches(int rounds, warrior_s** warriors, int num_warriors);
 
 /// <summary>
@@ -52,14 +59,10 @@ float* do_matches(int rounds, warrior_s** warriors, int num_warriors);
 warrior_s** do_battle(int rounds, warrior_s** warriors, int num_warriors, int num_survivors);
 
 /// <summary>
-/// TODO
+/// Computes the final score of the algorithm
 /// </summary>
-/// <param name="rounds">TODO</param>
-/// <param name="warriors">TODO</param>
-/// <param name="num_warriors">TODO</param>
-/// <returns>TODO</returns>
+/// <param name="rounds">Number of rounds</param>
+/// <param name="warriors">List of warriors</param>
+/// <param name="num_warriors">Number of warrior for the battle</param>
+/// <returns>Score of the algorithm</returns>
 float get_final_score(int rounds, warrior_s** warriors, int num_warriors);
-
-char get_special_tag(warrior_s* warrior);
-
-void set_special_tag(warrior_s* warrior, char tag);
